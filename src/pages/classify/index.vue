@@ -48,8 +48,9 @@
                </ul>
            </div>
            <div class="search-right">
-          <div class="swiper-container">
-              <div class="swiper-wrapper">
+             <div class="name">
+              <div class="swiper-container">
+               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <img src="https://yanxuan.nosdn.127.net/f00ff1a6f9e244efe43c77ee8331318f.jpg" alt="实时热销top100">
                 </div>
@@ -97,6 +98,8 @@
              </ul>
           </div>
         </div>
+
+        </div>
     </div>
   </div>
 </template>
@@ -114,8 +117,12 @@
              click:true
          })
        })
-      //  new BScroll(".search-left", {click: true, scrollX: true})
-      //  new BScroll(".search-right", {click: true, scrollX: true})
+       this.$nextTick(()=>{
+         let scroll = new BScroll(".search-right",{
+             scrollY:true,
+             click:true
+         })
+       })
        var mySwiper = new Swiper('.swiper-container', {
         loop: true, // 循环模式选项
 
@@ -183,7 +190,7 @@
             padding 20px 0
             box-sizing border-box
             .searchList
-               height 2000px
+               height 700px
               .searchItem 
                 width 81px 
                 height 25px
@@ -198,49 +205,52 @@
                   border-left 2px solid #b4282d
           .search-right
              padding 10px
-             box-sizing border-box    
-            >>>.swiper-container 
-                  width: 264px
-                  height: 96px
-                  img 
-                    width 100%
-                    height 100%
-                  .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets
-                    width 100%
-                    height 2px
-                    bottom 25px
-                    .swiper-pagination-customs
-                      display block
-                      width 20px
-                      height 2px
-                      display inline-block
-                      margin-right 5px
-                      background-color rgba(255, 255, 255, .5)
-                    .swiper-pagination-customs-active
-                      width 20px
-                      height 2px
-                      display inline-block
-                      border-radius 2px
-                      background-color #b4282d
-              .shopInfo
-                 padding-top 15px
-                 box-sizing border-box
-                .shopInfoList
-                   display flex
-                   flex-wrap wrap
-                  .shopInfoItem
-                    display flex
-                    flex-direction column
-                    font-size 12px
-                    justify-content center
-                    align-items center
-                    margin-right 17px
+             box-sizing border-box
+            .name
+              height 624px
+              width 100%     
+              >>>.swiper-container 
+                    width: 264px
+                    height: 96px
                     img 
-                      width 72px
-                      height 72px
-                    .text
-                       text-align center
-                       max-width 72px
+                      width 100%
+                      height 100%
+                    .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets
+                      width 100%
+                      height 2px
+                      bottom 25px
+                      .swiper-pagination-customs
+                        display block
+                        width 20px
+                        height 2px
+                        display inline-block
+                        margin-right 5px
+                        background-color rgba(255, 255, 255, .5)
+                      .swiper-pagination-customs-active
+                        width 20px
+                        height 2px
+                        display inline-block
+                        border-radius 2px
+                        background-color #b4282d
+                .shopInfo
+                  padding-top 15px
+                  box-sizing border-box
+                  .shopInfoList
+                    display flex
+                    flex-wrap wrap
+                    .shopInfoItem
+                      display flex
+                      flex-direction column
+                      font-size 12px
+                      justify-content center
+                      align-items center
+                      margin-right 17px
+                      img 
+                        width 72px
+                        height 72px
+                      .text
+                        text-align center
+                        max-width 72px
  
               
 </style>
