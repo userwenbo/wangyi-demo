@@ -11,7 +11,7 @@ import axios from "axios"
 import qs from 'qs'
 
 // 指定基础url: 后台应用的url
-// axios.defaults.baseURL = process.env.NODE_ENV === 'product' ? '/react_api' : ''
+axios.defaults.baseURL = '/api'
 
 // 使用请求拦截器
 axios.interceptors.request.use((config) => {
@@ -32,10 +32,10 @@ axios.interceptors.response.use(
     return response.data
   },
   error => {
-    message.error('请求出错: '+error)
+     console.log(error.message)
     return new Promise(() => {}) // 中断promise链
   }
 )
 
 // 默认暴露axios
-export default axios
+export default axios 

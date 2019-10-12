@@ -4,11 +4,9 @@ import Vuex from 'vuex'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
-import classify from './modules/classify'
 import home from './modules/home'
-import find from './modules/find'
-import shopCart from './modules/shopCart'
-import personal from './modules/personal'
+import category from './modules/category'
+import categorylist from './modules/categorylist'
 
 Vue.use(Vuex)
 
@@ -18,9 +16,7 @@ export default new Vuex.Store({
    mutations,
    modules:{
      home,
-     classify,
-     find,
-     shopCart,
-     personal
+     category,
+     categorylist
    }
 })

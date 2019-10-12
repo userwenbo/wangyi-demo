@@ -9,7 +9,6 @@
           <span>食品经营许可证：JY13301080111719</span>
         </div>
       </div>
-  </div>
 </template>
 
 <script type="text/ecmascript-6">

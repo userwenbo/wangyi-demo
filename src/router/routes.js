@@ -3,6 +3,7 @@ import Classify from '../pages/classify'
 import Find from '../pages/find'
 import ShopCart from '../pages/shopCart'
 import Personal from '../pages/personal'
+import Search from  '../pages/search'
 
 export default [
    {
@@ -36,6 +37,10 @@ export default [
    {
      path: '/personal',
      component:Personal
+   },
+   {
+     path:'/search',
+     component:Search
    },
    {
      path: '/',

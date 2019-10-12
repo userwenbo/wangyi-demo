@@ -32,12 +32,12 @@
     mounted(){
       var mySwiper = new Swiper('.swiper-container', {
         loop: true, // 循环模式选项
-
+         autoplay:true, 
         // 如果需要分页器
         pagination: {
           el: '.swiper-pagination',
           type: 'custom',
-            autoplayDisableOnInteraction : false,
+            autoplayDisableOnInteraction : true,
             renderCustom: function (swiper, current, total) {
               var paginationHtml = " ";
               for (var i = 0; i < total; i++) {
@@ -50,8 +50,8 @@
               }
               return paginationHtml;
             },
-          },
-       })
+        },
+      })
     }
   }
 </script>

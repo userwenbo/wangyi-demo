@@ -6,7 +6,7 @@
                   src="//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/indexLogo-a90bdaae6b.png"
                   alt="logo"/>
             </a>  
-            <div class="searchInput">
+            <div class="searchInput" @click="$router.push('/search')">
                 <i class="iconfont icon-sousuo find"></i>
                 <span class="placeholder">搜索商品，共xxxxx款好物</span>
             </div>
@@ -14,38 +14,38 @@
         </div>
         <div class="nav">
           <div class="header-bottom wrapper" v-show="!isShowTab">
-            <ul>
-              <li class="item on" @click="checkout">
+            <ul @click="addActive($event)">
+              <li class="item" :class="{on: curA===0}" data-this-index="0">
                 <span>推荐</span>
               </li>
-              <li class="item">
+              <li class="item" :class="{on: curA===1}" data-this-index="1">
                 <span>居家生活</span>
               </li>
-              <li class="item">
+              <li class="item" :class="{on: curA===2}" data-this-index="2">
                 <span>居家生活</span>
               </li>
-              <li class="item">
+              <li class="item" :class="{on: curA===3}" data-this-index="3">
                 <span>居家生活</span>
               </li>
-              <li class="item">
+              <li class="item" :class="{on: curA===4}" data-this-index="4">
                 <span>服饰鞋包</span>
               </li>
-              <li class="item">
+              <li class="item" :class="{on: curA===5}" data-this-index="5">
                 <span>美食酒水</span>
               </li>
-              <li class="item">
+              <li class="item" :class="{on: curA===6}" data-this-index="6">
                 <span>个人清洁</span>
               </li>
-              <li class="item">
+              <li class="item" :class="{on: curA===7}" data-this-index="7">
                 <span>个人清洁</span>
               </li>
-              <li class="item">
+              <li class="item" :class="{on: curA===8}" data-this-index="8">
                 <span>个人清洁</span>
               </li>                                                       
             </ul>
         </div>  
-        <div class="toggleWrap">
-              <i class="iconfont icon-toTop" @click="toggle" :class="[isShowTab?'icon-toTop':'icon-toBottom']"></i>
+        <div class="toggleWrap" @click="toggle">
+              <i class="iconfont" :class="isShowTab?'icon-toTop':'icon-toBottom'"></i>
         </div>
         <div class="tabWrap" v-show="isShowTab">
             <div class="tabWrap-nav">
@@ -68,29 +68,50 @@
                 <li class="item">
                   <span>个人清洁</span>
                 </li>
+                <li class="item">
+                  <span>个人清洁</span>
+                </li>
+                <li class="item">
+                  <span>个人清洁</span>
+                </li>
+                <li class="item">
+                  <span>个人清洁</span>
+                </li> 
               </ul>
             </div>
         </div>  
         </div>
-
         <div class="mask" v-show="isShowTab"></div>
       </div>
 </template>
 
 <script type="text/ecmascript-6">
+import {mapState} from 'vuex'
 import BScroll from "better-scroll";
   export default {
   data(){
     return{
       isShowTab:false,
+      curA:0
     }
+  },
+  computed:{
+       ...mapState({
+          homeData:state=>state.home.homeData
+       })
   },
   methods:{
       toggle(){
          this.isShowTab=!this.isShowTab
+         console.log("---")
       },
-      checkout(){
-         
+      addActive (e) {  
+        if(e.target.nodeName==="LI"){
+          this.curA = +e.target.dataset.thisIndex
+        }
+        if(e.target.nodeName==="SPAN"){
+          this.curA = +e.target.parentNode.dataset.thisIndex
+        }
       }
   },
      mounted(){

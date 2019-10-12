@@ -6,46 +6,10 @@
         <span class="text">48小时快速退款</span> 
   </div>
   <div class="nav-content">
-      <ul class="navList">
-        <li class="navItem">
-          <img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png">
-          <span>居家</span>
-        </li>
-        <li class="navItem">
-          <img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png">
-          <span>居家</span>
-        </li>
-        <li class="navItem">
-          <img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png">
-          <span>居家</span>
-        </li>
-        <li class="navItem">
-          <img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png">
-          <span>居家</span>
-        </li>
-        <li class="navItem">
-          <img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png">
-          <span>居家</span>
-        </li>
-        <li class="navItem">
-          <img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png">
-          <span>居家</span>
-        </li>
-        <li class="navItem">
-          <img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png">
-          <span>居家</span>
-        </li>
-        <li class="navItem">
-          <img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png">
-          <span>居家</span>
-        </li>
-        <li class="navItem">
-          <img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png">
-          <span>居家</span>
-        </li>
-        <li class="navItem">
-          <img src="http://yanxuan.nosdn.127.net/698205eb5a605f0f7c27aebadacd2317.png">
-          <span>居家</span>
+      <ul class="navList" v-if="homeData.kingKongModule">
+        <li class="navItem" v-for="(item,index) in homeData.kingKongModule.kingKongList">
+          <img :src="item.picUrl">
+          <span>{{item.text}}</span>
         </li>
       </ul>
   </div>
@@ -53,7 +17,13 @@
 </template>
 
 <script type="text/ecmascript-6">
+ import {mapState} from 'vuex'
   export default {
+    computed:{
+       ...mapState({
+          homeData:state=>state.home.homeData
+       })
+     },
   }
 </script>
 
@@ -76,11 +46,13 @@
                  flex-direction column
                  justify-content center
                  align-items center
+                 font-size 12px
                  width 55px
                  height 78px
                  margin 5px 10px 4px 10px
                  img 
                    width 55px
-                   height 55px 
+                   height 55px
+
  
 </style>

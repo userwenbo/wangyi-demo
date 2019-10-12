@@ -6,10 +6,8 @@
           <ShopContent/>
           <HomeFooter/>
       </div>
-      <Header/>
-      
-</div>  
-         
+      <Header/> 
+</div>    
 </template>
 
 <script type="text/ecmascript-6">
@@ -63,5 +61,5 @@
       height 100%
       .home-content
         padding-top 74px
- 
+        padding-bottom 180px
 </style>

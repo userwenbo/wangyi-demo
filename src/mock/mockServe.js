@@ -8,6 +8,6 @@ import categoryList from './categoryList.json'
 
 
 //定义mock接口
-Mock.mock('/home',{code:0,data:homeData})
-Mock.mock('/category',{code:0,data:category})
-Mock.mock('/categoryList',{code:0,data:categoryList})
+Mock.mock('/api/homedata',{code:0,data:homeData})
+Mock.mock('/api/category',{code:0,data:category})
+Mock.mock('/api/categorylist',{code:0,data:categoryList})
